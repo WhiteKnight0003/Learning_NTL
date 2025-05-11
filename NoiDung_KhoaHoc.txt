@@ -1,0 +1,44 @@
+
+**Tóm tắt khóa học: Machine Learning: Natural Language Processing in Python (Version 2)**
+
+---
+
+📍 **Giới thiệu chung**
+- 🔥 Tìm hiểu cách AI như ChatGPT, GPT-4, DALL-E, Midjourney, Stable Diffusion hoạt động.
+- 🚀 Học nền tảng xây dựng các ứng dụng NLP và AI hiện đại.
+
+📚 **Khóa học chia làm 4 phần chính:**
+
+1. 🧠 **Vector Models & Text Preprocessing:**
+   - ✨ Tầm quan trọng của vector trong AI.
+   - 🛠️ Kỹ thuật biến đổi văn bản thành vector: CountVectorizer, TF-IDF.
+   - 🧩 Giới thiệu word embeddings: word2vec, GloVe.
+   - 📂 Ứng dụng: Phân loại văn bản, tìm kiếm tài liệu, tóm tắt văn bản.
+   - 📝 Tiền xử lý văn bản: tokenization, stemming, lemmatization, POS tagging.
+
+2. 🎲 **Probability Models & Markov Models:**
+   - 📈 Mô hình xác suất, Markov Model.
+   - 🧪 Ứng dụng: Phân loại văn bản, sinh văn bản, spin bài.
+   - 🧠 Cơ sở lý giải Transformer, BERT, GPT.
+
+3. 🤖 **Machine Learning Methods:**
+   - 🛠️ Ứng dụng ML trong NLP: spam detection, sentiment analysis, LSA, topic modeling.
+   - 🔎 Thuật toán sử dụng:
+     - 📌 Naive Bayes
+     - 📌 Logistic Regression
+     - 📌 PCA / SVD
+     - 📌 LDA
+
+4. 🧬 **Deep Learning Methods:**
+   - 🧠 Neural Networks trong NLP: ANN, CNN, RNN.
+   - 🛠️ Kiến trúc tiến tiến: LSTM, GRU.
+   - ⚡ Nền tảng hiểu Transformer như BERT, GPT-3.
+
+---
+
+📍 **Điểm đặc biệt của khóa học:**
+- ✅ Giải thích chi tiết mỗi dòng code.
+- ✅ Tiết kiệm thời gian đánh máy vô nghĩa.
+- ✅ Sẵn sàng tiếp cận toán học trình độ đại học.
+
+---

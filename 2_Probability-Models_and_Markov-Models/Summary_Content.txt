@@ -1,0 +1,16 @@
+2. 🎲 Probability Models & Markov Models
+
+✨ Giới thiệu:
+- Mô hình xác suất, dự đoán chuỗi từ.
+- Markov Model: Dự đoán dựa vào trạng thái hiện tại.
+
+✨ Ứng dụng:
+- ✉️ Phân loại văn bản
+- 📝 Sinh văn bản (ví dụ: tạo thơ)
+- 🌀 Article spinning
+
+✨ Liên hệ Transformer:
+- BERT, GPT phát triển từ ý tưởng xác suất chuỗi từ.
+
+🔵 Sơ đồ phần 2:
+Văn bản → Xác suất từ tiếp theo → Markov Chain → Ứng dụng

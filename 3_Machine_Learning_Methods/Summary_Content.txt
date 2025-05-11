@@ -1,0 +1,19 @@
+3. 🤖 Machine Learning Methods
+
+✨ Giới thiệu:
+- Ứng dụng ML cổ điển trong NLP.
+
+✨ Các ứng dụng:
+- 📥 Spam detection
+- 😀 Sentiment analysis
+- 🧠 Latent Semantic Analysis (LSA)
+- 🔥 Topic modeling
+
+✨ Thuật toán sử dụng:
+- Naive Bayes
+- Logistic Regression
+- PCA / SVD (giảm chiều)
+- LDA (phát hiện chủ đề)
+
+🔵 Sơ đồ phần 3:
+Văn bản → Vector hóa → ML Algorithms → Phân loại / Chủ đề

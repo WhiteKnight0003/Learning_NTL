@@ -1,0 +1,27 @@
+1. 🧠 Vector Models & Text Preprocessing
+
+✨ Tầm quan trọng của vector trong AI
+- Máy tính cần biểu diễn văn bản dưới dạng số (vector) để xử lý.
+- Vector hóa giúp thực hiện phân loại, tìm kiếm, dịch ngôn ngữ, ...
+
+✨ Kỹ thuật biến đổi văn bản thành vector
+- CountVectorizer: Biến văn bản thành vector đếm số từ.
+- TF-IDF: Biến văn bản thành vector có trọng số, đánh giá tầm quan trọng từ.
+
+✨ Word Embeddings
+- word2vec: Dùng neural network để ánh xạ từ thành vector.
+- GloVe: Ánh xạ từ dựa trên thống kê toàn cục văn bản.
+
+✨ Ứng dụng:
+- 📄 Phân loại văn bản
+- 🔎 Tìm kiếm tài liệu
+- 📝 Tóm tắt văn bản
+
+✨ Tiền xử lý văn bản:
+- Tokenization: Chia nhỏ văn bản thành từ/câu.
+- Stemming: Cắt gốc từ.
+- Lemmatization: Đưa từ về dạng chuẩn.
+- POS tagging: Gán nhãn từ loại (danh từ, động từ,...).
+
+🔵 Sơ đồ phần 1:
+Văn bản → Vector hóa → Ứng dụng NLP

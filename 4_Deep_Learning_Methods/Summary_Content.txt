@@ -1,0 +1,19 @@
+
+4. 🧬 Deep Learning Methods
+
+✨ Giới thiệu:
+- Deep Learning cách mạng NLP bằng cách tự động học đặc trưng.
+
+✨ Neural Networks:
+- ANN (Mạng nơ-ron truyền thẳng)
+- Embeddings (ánh xạ từ)
+- CNN (mạng tích chập)
+- RNN (mạng hồi tiếp)
+  - 🧠 LSTM, GRU (xử lý chuỗi dài)
+
+✨ Liên hệ Transformer:
+- Transformer (BERT, GPT) phát triển từ Attention-based Neural Networks.
+
+🔵 Sơ đồ phần 4:
+Văn bản → Neural Networks → Học đặc trưng → Tiến tới Transformer
+

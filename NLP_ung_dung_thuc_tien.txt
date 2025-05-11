@@ -1,0 +1,42 @@
+
+NLP là gì?
+
+NLP (Natural Language Processing - Xử lý ngôn ngữ tự nhiên) là một lĩnh vực của trí tuệ nhân tạo (AI) tập trung vào việc cho phép máy tính hiểu, diễn giải, và tạo ra ngôn ngữ của con người. NLP kết hợp giữa ngôn ngữ học, khoa học máy tính và học máy để xử lý và phân tích lượng lớn dữ liệu ngôn ngữ tự nhiên.
+
+Ứng dụng của NLP trong thực tiễn:
+
+1. Chatbot và Assistant Virtual:
+   - Ví dụ: Siri, Google Assistant, ChatGPT.
+   - Hỗ trợ trả lời câu hỏi, thực hiện lệnh thoại, cung cấp thông tin.
+
+2. Dịch thuật - Language translation 
+   - Ví dụ: Google Translate, DeepL.
+   - Dịch văn bản từ ngôn ngữ này sang ngôn ngữ khác một cách tự động.
+
+3. Phân tích cảm xúc - analysit sentiment:
+   - Sử dụng để đánh giá phản hồi khách hàng trên mạng xã hội, đánh giá sản phẩm, dịch vụ.
+
+4. Tìm kiếm thông tin - search engine:
+   - Cải thiện kết quả tìm kiếm trên Google, YouTube, v.v. bằng cách hiểu rõ hơn ý định của người dùng.
+
+5. Nhận dạng giọng nói - speech recognition:
+   - Chuyển đổi giọng nói thành văn bản phục vụ nhập liệu, lệnh điều khiển bằng giọng nói.
+
+6. Tóm tắt văn bản - text summarization:
+   - Tự động rút gọn nội dung dài thành bản tóm tắt ngắn gọn, hữu ích trong báo chí, nghiên cứu.
+
+7. Phát hiện spam và lọc nội dung - spam detection and filter content:
+   - Xác định và loại bỏ email rác hoặc nội dung không phù hợp trên mạng xã hội.
+
+8. Phân loại văn bản và trích xuất thông tin: - filter content and extract information:
+   - Tự động phân loại văn bản theo chủ đề, trích xuất thông tin quan trọng từ tài liệu.
+
+9. Tạo văn bản và mã nguồn tự động (Text & Code Generation):
+   - Sử dụng mô hình ngôn ngữ để sinh ra văn bản hoặc mã lập trình dựa trên ngữ cảnh đầu vào.
+   - Ứng dụng: viết nội dung (email, bài báo, mô tả sản phẩm), viết truyện, làm thơ, tạo quảng cáo, tạo mã lập trình, gợi ý và hoàn thiện đoạn code, giải thích hoặc sửa lỗi mã.
+   - Ví dụ: ChatGPT, Jasper, GitHub Copilot, Amazon CodeWhisperer.
+
+
+
+=> NLP đang ngày càng phát triển và đóng vai trò quan trọng trong việc cải thiện khả năng giao tiếp giữa con người và máy tính.
+
