@@ -1,0 +1,59 @@
+- Letter -> chữ cái 
+    + Tiếng Anh có 26 chữ cái cơ bản: từ A đến Z.
+    + Đây là các letter: "a", "b", "c", ..., "z".
+
+- Character (ký tự) là một khái niệm rộng hơn letter.
+    + Character bao gồm:
+    + Chữ cái ("a", "b", ...)
+    + Chữ số ("0", "1", ...)
+    + Dấu câu (".", ",", "!")
+    + Khoảng trắng (" ")
+    + Ký tự đặc biệt ("\n" - newline, "\t" - tab, v.v.)
+
+- Token → đơn vị từ/cụm từ
+    + Từ (ví dụ: "apple", "go", "beautiful"),
+    + Dấu câu (ví dụ: ".", ",", "?"),
+    + Một phần của từ (ví dụ: trong các kỹ thuật như subword tokenization, "unhappiness" có thể tách thành "un", "happi", "ness").
+
+
+=> Trong thực tế NLP, việc phân biệt dấu câu là token hay character KHÔNG quan trọng tuyệt đối, mà tùy vào mục tiêu xử lý.
+- Khi nào dấu câu là token	
+    + Bạn tokenize văn bản (chia thành từ/tokens) → dấu câu có thể trở thành 1 token riêng.	
+    + Ví dụ: "Hello!" → ["Hello", "!"]	
+    + Dùng trong: Text classification, Machine Translation, etc.	
+
+- Khi nào dấu câu là character
+    + Bạn xử lý từng ký tự riêng lẻ (character-level model) → dấu câu chỉ là 1 ký tự.
+    + Ví dụ: "Hello!" → ['H', 'e', 'l', 'l', 'o', '!']
+    + Dùng trong: Spelling correction, OCR, Text generation at character-level
+
+
+
+- Vocabulary Tập hợp các từ (hoặc token) mà mô hình NLP có thể nhận diện và xử lý.
+    + Không chứa hết tất cả từ: Chỉ chọn một tập hợp hợp lý, đủ lớn để mô hình học tốt nhưng không quá nặng.
+    + Số lượng từ: Bạn tự quyết định (ví dụ: 10k, 100k từ) dựa trên bài toán và kết quả thử nghiệm.
+    + Nếu dùng mô hình pretrained: Vocabulary đã được chọn sẵn, bạn không cần làm gì.
+
+
+- Document → tài liệu riêng lẻ
+
+
+- Corpus Là tập hợp lớn các văn bản hoặc lời nói được thu thập để phân tích ngôn ngữ.
+    + Corpus chính là tập dữ liệu (dataset) dùng cho bài toán Machine Learning (ML).
+    + Quy trình xử lý: Từ Raw Corpus → tách HTML → Đoạn văn (Paras) → Câu (Sents) → Từ/token (Tokens) → Gán nhãn (Tags).
+
+
+- Sentence (Câu):
+    + Một câu là chuỗi các từ.
+    + Một câu thường bắt đầu bằng từ viết hoa và kết thúc bằng dấu câu (ví dụ: dấu chấm ., dấu hỏi ?).
+
+
+- N-Gram: Là chuỗi gồm N phần tử liên tiếp (có thể là từ, ký tự, hoặc subword).
+    + 1 phần tử → Unigram
+    + 2 phần tử → Bigram
+    + 3 phần tử → Trigram
+    => Dùng để:
+        + Xây mạng neuron (như word2vec skipgram).
+        + Dự đoán xác suất trong mô hình Markov (dựa trên bigram).
+
+

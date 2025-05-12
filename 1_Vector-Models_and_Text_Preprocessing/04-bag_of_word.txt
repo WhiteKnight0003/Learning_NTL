@@ -1,0 +1,28 @@
+
+Bag of Words (BoW) là một kỹ thuật biểu diễn văn bản trong xử lý ngôn ngữ tự nhiên (NLP) bằng cách biến đổi văn bản thành một tập hợp các từ (bag), bỏ qua ngữ pháp và thứ tự của từ, chỉ quan tâm đến sự xuất hiện (frequency) của từ trong văn bản.
+
+🌟 Đặc điểm chính của Bag of Words:
+- Không quan tâm đến thứ tự từ ngữ: Mặc dù văn bản có tính tuần tự (sequential), BoW bỏ qua trật tự đó.
+- Chỉ đếm số lần xuất hiện từ: Nó tạo ra một vector với mỗi phần tử đại diện cho tần suất xuất hiện của một từ cụ thể.
+- Không xử lý ngữ cảnh hoặc ngữ nghĩa: Điều này có thể khiến mô hình mất đi thông tin quan trọng về câu.
+
+🧠 Ví dụ:
+
+Giả sử bạn có 2 câu:
+1. "Tôi thích học máy."
+2. "Học máy tôi thích."
+
+- Dưới góc nhìn ngữ nghĩa: hai câu trên giống nhau nhưng trật tự từ thì khác.
+- Với Bag of Words, cả hai câu đều được biểu diễn bằng vector:
+
+  [tôi: 1, thích: 1, học: 1, máy: 1]
+
+  => Hai câu coi như giống hệt nhau theo BoW.
+
+📌 Nhược điểm:
+- Không phân biệt ngữ cảnh.
+- Không nhận biết thứ tự từ nên không phù hợp cho các tác vụ cần hiểu sâu ngữ nghĩa (ví dụ như dịch máy, phân tích cảm xúc nâng cao...).
+
+✅ Ứng dụng:
+- Phân loại văn bản
+- Trích xuất đặc trưng cho mô hình học máy đơn giản như Naive Bayes, SVM

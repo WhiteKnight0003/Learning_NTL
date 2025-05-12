@@ -1,0 +1,68 @@
+📘 QUY TRÌNH XỬ LÝ VĂN BẢN CHO HỌC MÁY (PHÂN LOẠI VĂN BẢN) – PHIÊN BẢN DỄ HIỂU
+
+🔹 1. Documents – Tài liệu gốc là gì?
+    - Tưởng tượng bạn là nhân viên thư viện, mỗi ngày bạn phải phân loại email, bài báo, hoặc bài viết Facebook thành các nhóm như “Khoa học”, “Thể thao”, “Nghệ thuật”.
+    Những thứ bạn cần phân loại chính là tài liệu (documents).
+
+📄 Ví dụ:
+    ID	Nội dung bài viết (Document)
+    1	"Tôi thích trứng và mèo"
+    2	"Tôi ghét mèo"
+    3	"Tôi thích trứng và tôi thích mèo"
+
+
+🔹 2. Data Format – Chuyển thành bảng
+    - Để máy tính hiểu, ta cần sắp xếp các tài liệu thành bảng dữ liệu (giống như Excel hoặc DataFrame).
+
+📊 Ví dụ:
+    Nội dung văn bản	                  |     Nhãn (Label)
+    "Tôi thích trứng và mèo"	          |     Yêu Động Vật
+    "Tôi ghét mèo"	                      |  Không Yêu Động Vật
+    "Tôi thích trứng và tôi thích mèo"	  |     Yêu Động Vật
+
+
+🔹 3. Count Vectorizer – Đếm từ (Bag of Words)
+    - Giống như việc đếm từ khóa xuất hiện trong văn bản.
+    - Bag of Words: coi mỗi văn bản là một cái “túi” chứa các từ, không quan tâm thứ tự.
+
+    - 🔡 Từ điển (theo thứ tự bảng chữ cái):
+        => ["ghét", "mèo", "thích", "tôi", "trứng", "và"]
+        => 📈 Vector cho từng văn bản (ghét, mèo, thích, tôi, trứng, và):
+
+    - Văn bản	Vector
+        + "Tôi thích trứng và mèo"	[0, 1, 1, 1, 1, 1]
+        + "Tôi ghét mèo"	[1, 1, 0, 1, 0, 0]
+        + "Tôi thích trứng và tôi thích mèo"	[0, 1, 2, 2, 1, 1]
+
+
+🔹 4. Practical Issues – Các bước cần làm trước khi đếm
+    - 🧩 Cần xử lý trước:
+        + Tokenization: "Tôi thích trứng" → ["Tôi", "thích", "trứng"]
+        + Mapping: Gán chỉ số cho từng từ → tạo từ điển → index
+
+
+🔹 5. A Simple Example – Minh họa trực quan
+    - 📊 Giả sử bạn vẽ đồ thị:
+        + Trục X: số lần xuất hiện từ “mitochondria” (Sinh học)
+        + Trục Y: số lần xuất hiện từ “gravity” (Vật lý)
+        => 📌 Tài liệu sẽ được phân loại dựa trên vị trí trên đồ thị.
+
+
+🔹 6. Counting giúp ích gì?
+    + Từ đếm từ → biến văn bản thành con số → áp dụng học máy:
+    + 📍 phân loại, tìm kiếm, phân cụm...
+
+🔹 7. Tự triển khai Count Vectorizer
+    05-count-vectorizer.py
+
+🔹 8. Vì sao dùng Scipy thay vì Numpy?
+    - 📦 Dữ liệu lớn → ma trận NxV có nhiều số 0 (ma trận thưa)
+    - 🔧 Scipy xử lý tốt hơn: tiết kiệm bộ nhớ, nhanh hơn so với Numpy
+
+
+
+🔹 9. Normalization – Chuẩn hóa dữ liệu đếm
+    - 🧮 Văn bản dài hơn → có thể có số đếm cao hơn → không công bằng
+    - ✅ Giải pháp:
+        + L2 norm: chia vector cho độ dài của nó
+        + Tỷ lệ phần trăm: chia mỗi số đếm cho tổng số từ → ra tỷ lệ

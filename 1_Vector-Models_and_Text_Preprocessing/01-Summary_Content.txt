@@ -25,3 +25,9 @@
 
 🔵 Sơ đồ phần 1:
 Văn bản → Vector hóa → Ứng dụng NLP
+
+
+🔵 tại sao chúng ta cần học về Vector Models và Text Preprocessing:
+    - Machine Learning cần dữ liệu dạng số: ML chỉ hiểu và làm việc với các con số, vì nó là một nhánh của toán học ứng dụng.
+    - Ngôn ngữ tự nhiên là văn bản, không phải số, nên cần chuyển đổi văn bản thành số (vector hóa dữ liệu).
+    - Text preprocessing (xử lý trước văn bản) là bước cần thiết để dọn dẹp, chuẩn hóa văn bản trước khi chuyển nó thành các vector số để đưa vào thuật toán ML.
