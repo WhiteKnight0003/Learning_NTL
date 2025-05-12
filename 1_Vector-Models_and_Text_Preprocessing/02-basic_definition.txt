@@ -4,9 +4,9 @@
 
 - Character (ký tự) là một khái niệm rộng hơn letter.
     + Character bao gồm:
-    + Chữ cái ("a", "b", ...)
+    + Chữ cái ("a", "b", ...) 
     + Chữ số ("0", "1", ...)
-    + Dấu câu (".", ",", "!")
+    + Dấu câu (".", ",", "!") - punctuation
     + Khoảng trắng (" ")
     + Ký tự đặc biệt ("\n" - newline, "\t" - tab, v.v.)
 

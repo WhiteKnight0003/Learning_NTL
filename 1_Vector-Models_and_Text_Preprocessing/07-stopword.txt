@@ -1,0 +1,56 @@
+🛑 Stopwords trong Xử lý Ngôn ngữ Tự nhiên (NLP)
+
+📌 Stopwords là gì?
+
+    - Stopwords là những từ phổ biến trong một ngôn ngữ, ví dụ:
+        + Tiếng Việt: và, thì, là, của, một, trong, các, v.v.
+        + Tiếng Anh: and, the, is, in, at, etc.
+    => Những từ này không mang nhiều ý nghĩa nội dung, chủ yếu đóng vai trò ngữ pháp.
+
+❓ Tại sao cần xử lý Stopwords?
+    1. Không mang nhiều ý nghĩa riêng biệt
+    → Không giúp ích cho việc hiểu nội dung cốt lõi.
+
+    2. Gây nhiễu trong phân tích
+    → Xuất hiện quá thường xuyên, làm lu mờ từ quan trọng.
+
+    3. Tăng chi phí tính toán
+    → Làm chậm hệ thống và chiếm bộ nhớ không cần thiết.
+
+🔁 Quy trình xử lý văn bản (có Stopwords)
+
+        Văn bản gốc
+            ↓
+        1️⃣ Tách từ (Tokenization)
+            ↓
+        2️⃣ ⚠ Loại bỏ stopwords
+            ↓
+        3️⃣ Đếm tần suất từ (Count)
+            ↓
+        4️⃣ Đưa vào vector (Vectorization)
+
+
+→ Loại bỏ stopwords giúp:
+    - Giảm số lượng từ cần xử lý
+    - Tập trung vào từ quan trọng
+    - Cải thiện độ chính xác mô hình học máy
+
+
+✅ Tóm lại
+    - Stopwords = Từ phổ biến nhưng ít giá trị thông tin
+    - Xử lý stopwords là bước cần thiết để nâng cao hiệu suất và độ chính xác trong các bài toán NLP như:
+        + Phân loại văn bản
+        + Tìm kiếm thông tin
+        + Mô hình chủ đề
+
+
+TỔNG KẾT: VAI TRÒ CỐT LÕI CỦA STOPWORDS
++--------------------------+---------------------------------------------------+------------------------------------------------+
+|         Khía cạnh        | Ảnh hưởng nếu không loại bỏ stopwords             | Lợi ích khi loại bỏ stopwords                  |
++--------------------------+---------------------------------------------------+------------------------------------------------+
+| Chiều dữ liệu            | Rất cao, gây nhiễu và tốn tài nguyên              | Giảm chiều, giảm nhiễu, tăng tốc độ            |
+| Khoảng cách giữa văn bản | Khoảng cách bị sai lệch do từ phổ biến            | Khoảng cách phản ánh nội dung thực             |
+| Hiệu quả mô hình NLP     | Giảm độ chính xác                                 | Tăng chất lượng phân loại, phân cụm            |
+| Tính toán                | Tăng thời gian và bộ nhớ                          | Tối ưu tài nguyên                               |
++--------------------------+---------------------------------------------------+------------------------------------------------+
+

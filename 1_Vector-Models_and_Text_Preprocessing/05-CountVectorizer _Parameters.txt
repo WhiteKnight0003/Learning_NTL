@@ -1,0 +1,23 @@
+CountVectorizer Parameters (scikit-learn)
+✅ Các tham số chính:
+
+
+| Tham số         | Kiểu dữ liệu                             | Mặc định           | Mô tả                                                   |
+| --------------- | ---------------------------------------- | ------------------ | ------------------------------------------------------- |
+| `input`         | `'filename'`, `'file'`, `'content'`      | `'content'`        | Loại dữ liệu đầu vào.                                   |
+| `encoding`      | `str`                                    | `'utf-8'`          | Mã hóa văn bản khi đọc từ file.                         |
+| `decode_error`  | `'strict'`, `'ignore'`, `'replace'`      | `'strict'`         | Cách xử lý lỗi mã hóa.                                  |
+| `strip_accents` | `'ascii'`, `'unicode'`, `None`           | `None`             | Loại bỏ dấu trong tiếng Việt/ký tự Unicode.             |
+| `lowercase`     | `bool`                                   | `True`             | Chuyển văn bản về chữ thường.                           |
+| `preprocessor`  | `callable` hoặc `None`                   | `None`             | Hàm xử lý trước khi tách từ.                            |
+| `tokenizer`     | `callable` hoặc `None`                   | `None`             | Hàm tách từ tùy biến.                                   |
+| `stop_words`    | `'english'`, list hoặc `None`            | `None`             | Danh sách stop words cần loại bỏ.                       |
+| `token_pattern` | `str` (regex)                            | `r"(?u)\b\w\w+\b"` | Mẫu regex để tách từ.                                   |
+| `ngram_range`   | tuple `(min_n, max_n)`                   | `(1, 1)`           | Tạo n-gram: (1, 2) là unigram và bigram.                |
+| `analyzer`      | `'word'`, `'char'`, `'char_wb'` hoặc hàm | `'word'`           | Đơn vị đặc trưng: từ, ký tự,...                         |
+| `max_df`        | `float` hoặc `int`                       | `1.0`              | Bỏ qua từ xuất hiện quá phổ biến.                       |
+| `min_df`        | `float` hoặc `int`                       | `1`                | Bỏ qua từ xuất hiện quá hiếm.                           |
+| `max_features`  | `int` hoặc `None`                        | `None`             | Giới hạn số lượng đặc trưng.                            |
+| `vocabulary`    | `Mapping`, `Iterable`, hoặc `None`       | `None`             | Danh sách từ cố định để vector hóa.                     |
+| `binary`        | `bool`                                   | `False`            | Nếu `True`, chỉ quan tâm đến sự xuất hiện của từ (1/0). |
+| `dtype`         | kiểu dữ liệu (ví dụ `np.int64`)          | `np.int64`         | Kiểu của ma trận đầu ra.                                |

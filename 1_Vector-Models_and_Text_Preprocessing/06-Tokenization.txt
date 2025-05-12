@@ -1,0 +1,107 @@
+🔍 Tokenization trong NLP
+- Tokenization là bước tiền xử lý trong NLP nhằm chia văn bản thành các đơn vị nhỏ hơn gọi là token (từ, ký tự hoặc subword), để đưa vào mô hình ML.
+
+🧩 1. Tokenization Dựa Trên Từ (Word-Based Tokenization)
+    ✅ Ưu điểm:
+        - Ngữ nghĩa rõ ràng: Mỗi token là một từ mang ý nghĩa, dễ giúp mô hình học ngữ cảnh.
+        - Chuỗi ngắn: Văn bản được biểu diễn bởi ít token hơn so với tokenization ký tự.
+
+    ❌ Nhược điểm:
+        - Từ vựng lớn: Dễ lên tới hàng triệu từ → embedding & lớp softmax rất lớn
+        - Không xử lý tốt OOV (Out-of-Vocabulary): Từ mới/lỗi chính tả bị thay bằng <UNK>.
+        - Không nắm bắt hình thái từ: "run", "running", "ran" → các token khác nhau, mất liên hệ hình thái.
+
+    🧠 cách triển khai  : CountVectorizer(analyzer="word")
+
+
+
+🔤 2. Tokenization Dựa Trên Ký Tự (Character-Based Tokenization)
+    ✅ Ưu điểm:
+        - Từ vựng rất nhỏ: Chỉ gồm bảng chữ cái, dấu câu, v.v.
+        - Không có OOV: Mọi từ đều có thể biểu diễn bằng ký tự.
+        - Tốt cho lỗi chính tả / từ biến thể: Nhận diện mẫu giữa các từ sai lệch nhẹ.
+        - Nắm bắt được cấu trúc từ: Mô hình học tiền tố/hậu tố từ dữ liệu.
+
+    ❌ Nhược điểm:
+        - Mỗi ký tự ít thông tin: Không mang ý nghĩa riêng lẻ.
+        - Chuỗi dài: Tăng độ dài đầu vào, nặng tính toán
+        - Khó học khái niệm trừu tượng: Mô hình phải học cách "lắp ghép" ký tự thành từ, rồi mới hiểu ngữ nghĩa.
+
+    🧠 cách triển khai : CountVectorizer(analyzer="char")
+
+
+🧱 3. Tokenization Dựa Trên Đơn Vị Con (Subword Tokenization)
+    - Subword tokenization chia từ thành các đơn vị con phổ biến (subword), thay vì tách theo từ hoặc ký tự. Các phương pháp phổ biến:
+        + BPE (Byte Pair Encoding)
+        + WordPiece (dùng trong BERT)
+        + SentencePiece (dùng trong T5, ALBERT)
+
+    🔧 Cách hoạt động:
+        Ví dụ:
+            "tokenization" → ["token", "ization"]
+            Từ lạ như "autogeneration" → ["auto", "generation"] hoặc ["auto", "##generation"]
+
+    ✅ Ưu điểm:
+        - Cân bằng giữa từ và ký tự: Chuỗi không quá dài, nhưng vẫn nhỏ từ vựng.
+        - Giảm OOV: Từ lạ được chia thành các subword quen thuộc → không cần dùng <UNK>.
+        - Từ vựng linh hoạt và hiệu quả: Các từ phổ biến vẫn giữ nguyên, từ hiếm được chia nhỏ.
+        - Hiểu hình thái học: Tiền tố, hậu tố được học như các subword.
+
+    ❌ Nhược điểm:
+        - Cần huấn luyện từ vựng token riêng: Subword vocabulary phải được học từ dữ liệu.
+        - Không hoàn toàn ngữ nghĩa rõ như từ: Một số subword không mang nghĩa rõ ràng.
+        - Phụ thuộc vào ngữ liệu huấn luyện: Nếu từ xuất hiện dưới dạng rất lạ, chia subword có thể vẫn chưa tối ưu.
+
+    🧠 Ứng dụng trong mô hình học sâu:
+        - Được dùng rộng rãi trong các mô hình hiện đại như BERT, GPT, T5.
+        - Tối ưu tốt cho lớp embedding và lớp softmax.
+        - Giảm độ dài đầu vào hơn so với ký tự, đồng thời vẫn tránh vấn đề OOV của từ.
+    
+    🧠 cách triển khai : CountVectorizer(tokenizer=subword_tokenizer_function, analyzer="word")
+        với analyzer="word" để làm việc với danh sách subword tokens được trả về từ một hàm tokenizer tùy chỉnh như BPE, WordPiece, SentencePiece 
+        (bạn phải định nghĩa trước subword_tokenizer_function).
+
+
+
+📌 Ví dụ trực quan về Tokenization
+==============================
+
+- Văn bản gốc: "unhappiness"
+    Word-based Tokenization:
+    → ["unhappiness"]
+
+    Character-based Tokenization:
+    → ['u', 'n', 'h', 'a', 'p', 'p', 'i', 'n', 'e', 's', 's']
+
+    Subword-based Tokenization (e.g., BPE/WordPiece):
+    → ["un", "happi", "ness"]
+
+
+-- Văn bản gốc: "autogeneration"
+    Word-based Tokenization:
+    → ["autogeneration"] (có thể bị OOV nếu hiếm gặp)
+
+    Character-based Tokenization:
+    → ['a', 'u', 't', 'o', 'g', 'e', 'n', 'e', 'r', 'a', 't', 'i', 'o', 'n']
+
+    Subword-based Tokenization:
+    → ["auto", "generation"]
+
+
+
+============================================
+🔍 Bảng So Sánh Chi Tiết Trong Bối Cảnh Deep Learning
+============================================
+
+| Tiêu chí                        | Word-based                         | Character-based               | Subword-based            |
+|-------------------------------- |------------------------------------|-------------------------------|---------------------------|
+| ✅ Độ dài chuỗi đầu vào        | Ngắn nhất                          | Dài nhất                       | Trung bình                |
+| ✅ Kích thước từ vựng          | Rất lớn (~10⁵–10⁶)                 | Nhỏ (~100–200)                 | Vừa phải (~10⁴–10⁵)       |
+| ✅ Xử lý từ lạ (OOV)           | Kém                                | Rất tốt                        | Tốt                       |
+| ✅ Biểu diễn lỗi chính tả      | Không tốt                          | Tốt                            | Tốt (nếu chia được hợp lý)|
+| ✅ Nắm bắt hình thái từ        | Kém                                | Tốt                            | Rất tốt                   |
+| ✅ Lớp embedding               | Rất lớn                            | Nhỏ                            | Trung bình                |
+| ✅ Lớp softmax đầu ra          | Rất lớn                            | Nhỏ                            | Trung bình                |
+| ✅ Hiệu quả huấn luyện         | Nhanh nếu từ đủ phổ biến           | Tốn tài nguyên do chuỗi dài    | Cân bằng giữa hai bên |
+| ✅ Phù hợp mô hình nào         | Cũ hơn: RNN/LSTM truyền thống      | RNN biến thể hoặc CNN          | Transformer, BERT, GPT    |
+| ✅ Khả năng học ngữ nghĩa      | Dễ (vì token có nghĩa)             | Khó hơn (phải học từ ký tự)    | Dễ hơn character, gần bằng word |

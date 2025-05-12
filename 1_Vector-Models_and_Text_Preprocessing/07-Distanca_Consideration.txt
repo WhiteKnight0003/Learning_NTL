@@ -1,0 +1,18 @@
+🔷 2. DISTANCE CONSIDERATION (XEM XÉT KHOẢNG CÁCH)
+❗ Vấn đề:
+    - Trong NLP, mỗi văn bản được biểu diễn bằng một vector đặc trưng.
+    - Độ giống nhau giữa các văn bản → đo bằng khoảng cách giữa các vector (Euclidean, cosine, v.v.).
+
+💣 Rủi ro nếu không xử lý stopwords:
+    - Các từ dừng xuất hiện ở mọi văn bản với tần suất cao.
+    - Nếu vẫn giữ chúng:
+        + Các văn bản có thể giống nhau về mặt vector, chỉ vì đều dùng nhiều từ "và", "là", "các",...
+        + Các từ quan trọng như "ung thư", "ty thể", "điện áp",... sẽ bị lu mờ trong tính toán khoảng cách. 
+        + Dẫn đến sai lệch khi phân loại hoặc phân cụm.
+
+💡 Liên hệ với Stopwords:
+    - Stopwords ảnh hưởng trực tiếp đến cách tính khoảng cách giữa văn bản.
+    - Loại bỏ chúng giúp vector đặc trưng phản ánh đúng nội dung cốt lõi của văn bản.
+
+
+✅ Kết luận: Stopwords cần được loại bỏ để khoảng cách giữa các vector trở nên có ý nghĩa, phản ánh nội dung thực sự của văn bản.

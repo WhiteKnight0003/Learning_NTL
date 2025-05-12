@@ -1,0 +1,19 @@
+1. fit()
+
+Chức năng: Phương thức này "học" từ dữ liệu đầu vào, tính toán và lưu các thông số cần thiết.
+Kết quả: Không trả về dữ liệu, chỉ lưu các thông số đã học được.
+Ví dụ trong NLP: Khi sử dụng CountVectorizer, fit() sẽ học từ điển (vocabulary) từ dữ liệu văn bản.
+
+2. transform()
+
+Chức năng: Áp dụng các thông số đã học được để biến đổi dữ liệu đầu vào.
+Điều kiện: Phải gọi fit() trước đó.
+Kết quả: Trả về dữ liệu đã được biến đổi.
+Ví dụ trong NLP: Sau khi đã học từ điển, CountVectorizer.transform() sẽ chuyển đổi văn bản thành ma trận tần suất từ.
+
+3. fit_transform()
+
+Chức năng: Kết hợp cả hai bước trên, đầu tiên "học" từ dữ liệu và sau đó biến đổi dữ liệu đó.
+Kết quả: Trả về dữ liệu đã được biến đổi.
+Hiệu suất: Thường nhanh hơn việc gọi fit() và transform() riêng biệt.
+Ví dụ trong NLP: CountVectorizer.fit_transform() vừa học từ điển, vừa chuyển đổi văn bản thành ma trận trong một bước.

@@ -1,0 +1,16 @@
+🔶 1. DIMENSIONALITY (CHIỀU DỮ LIỆU)
+❗ Vấn đề:
+    - Trong NLP, mỗi từ trong từ điển có thể là một chiều trong không gian vector (ví dụ: bag-of-words hoặc TF-IDF).
+    - Văn bản thường có hàng ngàn từ → không gian biểu diễn có số chiều rất lớn.
+    - Khi chiều dữ liệu tăng:
+        + Không gian trở nên rất thưa thớt → mô hình khó học được cấu trúc thực tế.
+        + Cần nhiều dữ liệu huấn luyện hơn để phủ đầy không gian.
+        + Tăng nguy cơ overfitting.
+        + Tăng tính toán, bộ nhớ, và giảm hiệu suất mô hình.
+
+💡 Liên hệ với Stopwords:
+    - Stopwords như "là", "và", "các",... chiếm phần lớn số từ trong văn bản.
+    - Chúng không mang thông tin quan trọng cho ý nghĩa văn bản.
+    - Loại bỏ stopwords → giảm số chiều cần xử lý → đơn giản hóa không gian biểu diễn.
+
+✅ Kết luận: Stopwords là mục tiêu loại bỏ để giảm chiều dữ liệu, từ đó cải thiện khả năng học của mô hình và hiệu quả xử lý.

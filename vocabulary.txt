@@ -1,0 +1,5 @@
+- spilt
+- punctuation
+- casing
+- Accents
+
