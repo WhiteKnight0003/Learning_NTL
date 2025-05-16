@@ -1,0 +1,75 @@
+
+🔍 Vấn đề đặt ra trong NLP
+- Một từ có nhiều biến thể: walk, walking, walks, walked
+- Tác hại nếu coi mỗi biến thể là một từ riêng biệt:
+  + Biểu diễn vector rời rạc → Từ cùng gốc không "gần nhau"
+  + Tăng chiều không gian → Làm mô hình NLP phức tạp, nặng
+  + Khó truy vấn thông tin chính xác → Ví dụ: "running" có liên quan "ran", "run" nhưng không được khớp
+
+✅ Giải pháp: Đưa từ về dạng gốc
+Có 2 cách phổ biến:
+
+| Đặc điểm                  | Stemming                             | Lemmatization                          |
+|--------------------------|--------------------------------------|----------------------------------------|
+| Định nghĩa                | Cắt hậu tố theo quy tắc → ra “stem” | Trả về dạng gốc đúng ngữ pháp (lemma) |
+| Độ chính xác             | Thấp hơn (heuristic)                 | Cao hơn (dựa trên ngữ pháp/ngữ nghĩa) |
+| Dễ triển khai            | Có, đơn giản                         | Cần POS tagging hoặc từ điển tra cứu  |
+| Từ kết quả có nghĩa?     | Không bắt buộc                       | Có nghĩa và tồn tại trong từ điển      |
+| Tốc độ xử lý             | Nhanh hơn                            | Chậm hơn do cần xử lý ngữ pháp         |
+
+📌 Ví dụ minh họa
+| Từ gốc / Biến thể     | Stemming          | Lemmatization     |
+|----------------------|-------------------|-------------------|
+| walking              | walk              | walk              |
+| replacement          | replac            | replacement       |
+| better               | better            | good              |
+| was / is             | wa / is           | be                |
+| mice                 | mice              | mouse             |
+
+
+
+🛠️ Code Python minh họa
+
+Stemming với NLTK:
+from nltk.stem import PorterStemmer
+stemmer = PorterStemmer()
+print(stemmer.stem("walking"))  # Kết quả: walk
+
+Lemmatization với NLTK:
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import wordnet
+import nltk
+nltk.download("wordnet")
+lemmatizer = WordNetLemmatizer()
+print(lemmatizer.lemmatize("going"))                     # going
+print(lemmatizer.lemmatize("going", pos=wordnet.VERB))   # go
+
+
+
+🧠 Tại sao POS (Part-of-Speech) quan trọng với Lemmatization?
+- "following" trong "a devoted following" → danh từ
+- "following" trong "cat was following the bird" → động từ
+- Nếu không xác định đúng POS → kết quả có thể sai
+
+
+
+🔗 Mối liên hệ giữa Stemming & Lemmatization
+- Mục tiêu chung: Rút gọn từ về gốc để giảm rối loạn từ vựng
+- Đều được dùng trong: Tiền xử lý văn bản NLP: tìm kiếm, phân loại, phân tích văn bản
+- Khác biệt: Cách tiếp cận và độ chính xác
+
+
+
+💡 Ứng dụng thực tế
+| Ngành/Nhu cầu              | Ứng dụng                                         |
+|---------------------------|--------------------------------------------------|
+| Công cụ tìm kiếm           | Khớp "running" với "run", "ran"                 |
+| Quảng cáo từ khóa          | Gom nhóm "running shoes", "ran fast", ...       |
+| Thẻ trên mạng xã hội       | Gom các bài đăng về "run", "running", "runs"   |
+
+
+
+📘 Tóm lại
+- Stemming: nhanh, đơn giản, có thể sai lệch từ gốc
+- Lemmatization: chính xác, cần POS, dùng cho ngữ nghĩa đúng
+- Chọn phương pháp phù hợp với mục tiêu hệ thống NLP
