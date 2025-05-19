@@ -1,0 +1,87 @@
+📘 Tổng quan 5 cách sử dụng CountVectorizer trong xử lý văn bản:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔹 CÁCH 1: CountVectorizer Mặc định (Không tiền xử lý đặc biệt)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧩 Token hóa:
+  - ✅ Tự động chuyển văn bản về chữ thường.
+  - 🔍 Sử dụng regex mặc định: token là chuỗi có ≥ 2 ký tự chữ/số.
+  - ❌ Dấu câu và ký tự đặc biệt thường bị loại bỏ.
+
+🔧 Chuẩn hóa từ:
+  - ❌ Không có bước chuẩn hóa đặc biệt ngoài lowercase.
+
+📊 Kết quả:
+  - 📚 Từ điển lớn nhất vì giữ lại tất cả biến thể.
+  - ⚠️ Có thể nhiều nhiễu.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔹 CÁCH 2: CountVectorizer với Loại bỏ Stopwords (stop_words='english')
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧩 Token hóa:
+  - 🆗 Giống cách 1.
+
+🔧 Chuẩn hóa từ:
+  - ✂️ Loại bỏ stopwords tiếng Anh thông dụng (vd: "the", "is", "on").
+
+📊 Kết quả:
+  - 📉 Từ điển nhỏ hơn.
+  - 🎯 Giảm nhiễu, giữ từ mang nhiều ý nghĩa hơn.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔹 CÁCH 3: CountVectorizer với Lemmatization (LemmaTokenizer)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧩 Token hóa:
+  - 🔠 Dùng word_tokenize từ NLTK.
+  - 🏷️ Gán nhãn từ loại với pos_tag.
+
+🔧 Chuẩn hóa từ:
+  - 🌱 Dùng WordNetLemmatizer dựa trên POS.
+  - Ví dụ: "running", "ran" → "run".
+
+📊 Kết quả:
+  - 📦 Từ điển gọn, giữ đúng nghĩa.
+  - 🐢 Chậm hơn do phân tích ngữ pháp.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔹 CÁCH 4: CountVectorizer với Stemming (StemTokenizer)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧩 Token hóa:
+  - 🔠 Dùng word_tokenize như cách 3.
+
+🔧 Chuẩn hóa từ:
+  - ✂️ Dùng PorterStemmer để cắt gốc từ.
+  - Ví dụ: "running", "runner" → "run", "studies" → "studi".
+
+📊 Kết quả:
+  - 📉 Từ điển giảm mạnh.
+  - ⚡ Nhanh hơn lemmatization.
+  - ❗ Có thể mất nghĩa vì cắt "thô".
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔹 CÁCH 5: CountVectorizer với Simple Split Tokenizer (s.split())
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧩 Token hóa:
+  - ✂️ Tách từ bằng khoảng trắng.
+  - ❗ Không loại bỏ dấu câu.
+  - ✅ lowercase=True theo mặc định.
+
+🔧 Chuẩn hóa từ:
+  - ❌ Không có bước chuẩn hóa đặc biệt.
+
+📊 Kết quả:
+  - 🔀 Từ điển có thể khác cách 1.
+  - ⚠️ Dễ giữ lại nhiễu, không tối ưu.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ So sánh nhanh:
+
+| Cách | 🔎 Tokenizer        | 🛠️ Chuẩn hóa      | ✅ Ưu điểm           | ⚠️ Nhược điểm               |
+|------|---------------------|-------------------|----------------------|-----------------------------|
+| 1    | Regex mặc định      | Chữ thường        | Đầy đủ từ            | Từ điển lớn, có nhiễu       |
+| 2    | Regex + stopwords   | Loại từ dừng      | Giảm nhiễu           | Có thể loại từ quan trọng   |
+| 3    | word_tokenize + POS | Lemmatization     | Chính xác ngữ nghĩa  | Chậm hơn                    |
+| 4    | word_tokenize       | Stemming          | Nhanh, rút gọn mạnh  | Có thể mất nghĩa            |
+| 5    | split()             | Không có          | Đơn giản, dễ hiểu    | Dễ giữ lại nhiễu            |
+
+📌 Gợi ý: Nếu bạn cần xử lý chuyên sâu (vd: phân loại văn bản), ưu tiên **Cách 3** hoặc **Cách 4**.

@@ -1,0 +1,56 @@
+
+📌 **Giải thích về Kích thước Vector trong CountVectorizer**
+
+Kích thước vector = số lượng từ duy nhất trong bộ từ điển (vocabulary) => Mỗi chiều là 1 từ, giá trị là số lần xuất hiện từ đó trong văn bản.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 **TỔNG HỢP KẾT QUẢ (Vocabulary Size & Accuracy)**
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+| 🔢 Phương pháp              | 📚 Từ điển | ✅ Train Score | 🧪 Test Score |
+|----------------------------|------------|----------------|----------------|
+| 1️⃣ Mặc định                | 28586      | 0.9938         | 0.9730         |
+| 2️⃣ Loại bỏ Stopwords      | 28297      | 0.9938         | 0.9730         |
+| 3️⃣ Lemmatization          | 25035      | 0.9921         | 0.9753         |
+| 4️⃣ Stemming               | 21890      | 0.9910         | 0.9685         |
+| 5️⃣ Simple Split           | 32309      | 0.9927         | 0.9753         |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔍 **Phân tích Kích thước Từ điển & Nguyên nhân**
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔹 **5️⃣ Simple Split (32309 từ)** — 🔺 *Lớn nhất*
+• Token hóa đơn giản bằng `s.split()`, không loại dấu câu.
+• Giữ lại nhiều biến thể như "word." ≠ "word".
+
+🔹 **1️⃣ Mặc định (28586 từ)** — 🔺 *Lớn thứ hai*
+• Regex tách từ ≥2 ký tự, loại dấu câu.
+• Không loại stopwords, giữ nhiều biến thể.
+
+🔹 **2️⃣ Loại bỏ Stopwords (28297 từ)** — 🔻 *Nhỏ hơn Mặc định*
+• Loại các từ phổ biến (the, is, in...).
+• Giảm nhẹ kích thước từ điển.
+
+🔹 **3️⃣ Lemmatization (25035 từ)** — 🔻🔻 *Giảm đáng kể*
+• Đưa từ về dạng gốc có nghĩa (“ran”, “runs” → “run”).
+• Gộp biến thể ngữ pháp lại.
+
+🔹 **4️⃣ Stemming (21890 từ)** — 🔻🔻🔻 *Nhỏ nhất*
+• Cắt từ về “gốc” kỹ thuật (run, studi...). Có thể mất nghĩa.
+• Giảm mạnh số token bằng cách "cắt thô".
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💡 **Tóm lại**
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📈 **Tăng kích thước từ điển:**
+• Dùng tokenizer đơn giản (Simple Split) ⇒ không xử lý dấu câu kỹ.
+
+📉 **Giảm kích thước từ điển:**
+• 🛑 Stopwords Removal ⇒ Giảm nhẹ.
+• 🧠 Lemmatization ⇒ Giảm thông minh.
+• ✂️ Stemming ⇒ Giảm mạnh nhưng có thể mất nghĩa.
+
+🎯 **Chọn cách nào phụ thuộc bài toán:**
+• 🔍 Accuracy cao nhất: Lemmatization & Simple Split (Test Score 0.9753)
+• ⚖️ Cân bằng giữa kích thước nhỏ & độ chính xác: Lemmatization.
+
