@@ -1,0 +1,75 @@
+
+📘 1. TF-IDF là gì?
+
+- TF-IDF (Term Frequency - Inverse Document Frequency) là một phương pháp thống kê dùng để đánh giá mức độ quan trọng của một từ trong một tài liệu, so với toàn bộ tập hợp tài liệu.
+
+✅ Công thức:
+- TF (Term Frequency):
+  TF(t) = (số lần xuất hiện của từ t trong tài liệu) / (tổng số từ trong tài liệu)
+
+- IDF (Inverse Document Frequency):
+  IDF(t) = log(N / (1 + DF(t)))
+  Trong đó:
+    N: Tổng số tài liệu
+    DF(t): Số tài liệu chứa từ t
+
+- TF-IDF:
+  TF-IDF(t) = TF(t) * IDF(t)
+
+🎯 Mục đích:
+- Loại bỏ các từ phổ biến như “là”, “của”, “và”.
+- Giữ lại những từ đặc trưng cho tài liệu.
+
+
+🔍 2. Khi nào dùng TF-IDF và khi nào dùng CountVectorizer?
+
+| Thuộc tính       | CountVectorizer           | TF-IDF                            |
+|------------------|---------------------------|-----------------------------------|
+| Định nghĩa        | Đếm số lần từ xuất hiện   | Đếm + điều chỉnh theo độ hiếm    |
+| Từ phổ biến       | Được giữ nguyên           | Bị giảm trọng số                  |
+| Ứng dụng          | Phân loại đơn giản        | Tìm kiếm, phân cụm, lọc văn bản  |
+| Phù hợp với       | Mô hình baseline          | Mô hình cần giảm nhiễu            |
+
+🧪 Ví dụ:
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+
+docs = ["con mèo nằm trên giường", "con chó nằm dưới gầm bàn"]
+
+count_vec = CountVectorizer()
+tfidf_vec = TfidfVectorizer()
+
+print(count_vec.fit_transform(docs).toarray())
+print(tfidf_vec.fit_transform(docs).toarray())
+
+
+🧠 3. Ứng dụng nâng cao của TF-IDF
+
+📥 a. Tìm kiếm thông tin (Search Engines):
+- Dùng để xếp hạng tài liệu theo độ liên quan với truy vấn.
+
+📁 b. Phân loại văn bản:
+- Kết hợp với Logistic Regression, SVM để phân loại email spam, phân tích cảm xúc.
+
+🔗 c. Phân cụm văn bản:
+- Dùng KMeans trên vector TF-IDF.
+
+📄 d. Tóm tắt văn bản tự động:
+- Chọn câu có tổng TF-IDF cao nhất.
+
+🤖 e. NLP preprocessing:
+- Dữ liệu đầu vào tốt cho mô hình Naive Bayes, SVM, Random Forest.
+
+
+📚 4. Một số biến thể nâng cao
+
+- Sublinear TF scaling: TF = 1 + log(tần suất)
+- Smooth IDF: Thêm 1 vào mẫu số
+- N-gram TF-IDF: xét cả cụm từ như "con mèo", "nằm trên"
+
+
+🧾 Tóm tắt:
+
+| Kỹ thuật         | Ưu điểm                                 | Nhược điểm                               |
+|------------------|------------------------------------------|-------------------------------------------|
+| CountVectorizer  | Dễ hiểu, chạy nhanh                      | Không phân biệt độ quan trọng             |
+| TF-IDF           | Loại bỏ nhiễu, tăng độ phân biệt         | Có thể bỏ sót từ hiếm nhưng quan trọng    |

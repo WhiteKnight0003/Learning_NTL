@@ -1,0 +1,75 @@
+
+🔍 **TỔNG QUAN VỀ VECTOR SIMILARITY & ỨNG DỤNG**
+
+---
+
+📌 **1. Vector Similarity là gì?**
+
+- Là kỹ thuật đo lường mức độ giống nhau giữa các đối tượng được biểu diễn bằng vector số học.
+- Hàm tương đồng s(a, b) → trả về một giá trị thể hiện độ giống nhau giữa vector a và b.
+
+🧠 **Ứng dụng:**
+- 🔎 Tìm kiếm văn bản tương tự.
+- 🧬 Tìm từ đồng nghĩa/ liên quan như "king" và "queen", "car" và "vehicle".
+
+---
+
+📐 **2. Euclidean Distance (Khoảng cách Euclid)**
+
+✅ **Định nghĩa:**
+- Khoảng cách “chim bay” giữa hai điểm trong không gian.
+- Công thức:
+  ∥x−y∥₂ = sqrt[(x₁−y₁)² + (x₂−y₂)² + ... + (xD−yD)²]
+
+🧮 **Squared Euclidean Distance** (bỏ căn để dễ tính):
+- ∥x−y∥₂² = (x₁−y₁)² + (x₂−y₂)² + ...
+
+📊 **Đặc điểm:**
+- Nhạy cảm với độ lớn (magnitude) của vector.
+- Dùng tốt khi dữ liệu đã được chuẩn hóa hoặc có cùng độ dài.
+
+---
+
+📏 **3. Cosine Similarity (Độ tương đồng Cosine)**
+
+✅ **Định nghĩa:**
+- Đo sự tương đồng giữa hướng của hai vector, bỏ qua độ lớn.
+- Công thức:
+  cosθ = (x · y) / (∥x∥₂ * ∥y∥₂)
+
+📊 **Diễn giải:**
+- cosθ = 1: Cùng hướng (giống nhau hoàn toàn).
+- cosθ = 0: Vuông góc (không liên quan).
+- cosθ = -1: Ngược hướng (đối nghịch).
+
+📉 **Cosine Distance**:
+- distance = 1 − cosθ
+
+---
+
+⚖️ **4. So sánh Euclidean vs Cosine**
+
+📚 **Ví dụ ứng dụng:** So sánh tài liệu có độ dài khác nhau.
+- Euclidean dễ bị nhiễu nếu một tài liệu dài hơn.
+- Cosine tập trung vào nội dung (hướng), bỏ qua độ dài.
+
+📌 **Khi nào chúng giống nhau?**
+- Khi các vector đã được chuẩn hóa (∥x∥ = ∥y∥ = 1):
+  ∥x−y∥² = 2 × (1 − cosθ) = 2 × Cosine Distance
+
+---
+
+⚙️ **5. Ứng dụng: Article Spinning (Quay vòng nội dung)**
+
+✍️ **Định nghĩa:** Viết lại bài viết bằng cách thay từ bằng từ tương đồng.
+🔧 **Dựa vào Vector Similarity** để chọn từ thay thế có nghĩa gần giống.
+🚫 **Lưu ý:** Có thể bị coi là spam (black hat SEO) nếu lạm dụng.
+
+---
+
+🎯 **Tóm lại:**
+
+| Phương pháp           | Ưu điểm                         | Nhược điểm                        |
+|----------------------|----------------------------------|-----------------------------------|
+| Euclidean Distance   | Dễ hiểu, đo trực tiếp độ chênh   | Nhạy với độ dài vector            |
+| Cosine Similarity    | Bền vững với độ dài, phổ biến     | Không phải là metric thật sự      |
